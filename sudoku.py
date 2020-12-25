@@ -1,6 +1,5 @@
 from itertools import product
 from printer import pretty_print
-import time
 
 
 def possible(n, x, y, grid):
@@ -24,11 +23,9 @@ def solutions(grid): # yields solved grids
                     grid[i][j] = n
                     yield from solutions(grid)
                     grid[i][j] = 0
-                    
             return
 
     yield grid
-
 
 
 def main():
@@ -41,20 +38,15 @@ def main():
             [0, 6, 0, 0, 0, 0, 2, 8, 0],
             [0, 0, 0, 4, 1, 9, 0, 0, 5],
             [0, 0, 0, 0, 8, 0, 0, 0, 0]]
-
     pretty_print(grid)
-    #input('press entr for a solution>')
 
+    input('press enter for a solution>')
     for i in solutions(grid):
         pretty_print(i)
-        #input('enter again to look for more solutions>')
+        input('enter again to look for more solutions>')
 
     print('sorry, that\'s all folks')
 
 
 if __name__ == "__main__":
-    start = time.time()
     main()
-    end = time.time()
-    print(end - start)
-    
